@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import styled from "styled-components"
+
+const formDiv = styled.div `
+display:flex;
+justify-content: center;
+justify-content: space-evenly;
+align-content: center;
+align-items: center;
+
+
+`
 
 export default function Search(props) {
     const [username, setUsername] = useState('');
@@ -17,13 +28,13 @@ export default function Search(props) {
     },[username]);
 
     return (
-        <div>
+        <formDiv>
             <form onSubmit={onSubmit}>
                 <label>
                     <input value={username} onChange={onChange} name="username" type="text" />
                 </label>
                 <button>Search</button>
                 </form>        
-        </div>
+        </formDiv>
     )
 }
