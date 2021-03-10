@@ -8,7 +8,7 @@ export default class App extends Component {
 
   state = {
     gitHubData: [],
-    currentUser: [],
+    currentUser: 'Craig-Gerhardstein',
     followers: []
   }
 
@@ -72,8 +72,10 @@ export default class App extends Component {
     const {gitHubData, followers} = this.state;
     return (
       <div>
-        <DisplayData gitHubData={gitHubData} followers={followers}/>
         <Search searchedUser={this.currentUserState} />
+        <DisplayData gitHubData={gitHubData} followers={followers}/>
+        
+        
       </div>
     )
   }
