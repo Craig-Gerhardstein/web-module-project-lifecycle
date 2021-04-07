@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 class Followers extends React.Component {
  
@@ -11,10 +12,18 @@ class Followers extends React.Component {
                 <div>
                      {this.props.followers.map(item => {
                       return(
-                        <div>
-                            <img src={item.avatar_url} alt={item.login} />
-                            <p>{item.login}</p>
-                        </div>
+                        <Container>
+                            <ImgDiv>
+                                <img src={item.avatar_url} alt={item.login} />
+                            
+                            </ImgDiv>
+                            <div>
+                                <p>{item.login}</p>
+                            </div>
+
+
+                        </Container>
+                       
                       )
                   })}
 
@@ -29,5 +38,21 @@ class Followers extends React.Component {
         )
     }
 }
+const Container = styled.div ` 
+border: 1px solid black;
+width: 100%;
+display:flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+margin: 1%;
+`
+const ImgDiv = styled.div ` 
+
+width: 50%;
+img{
+    width: 100%;
+}
+`
 
 export default Followers

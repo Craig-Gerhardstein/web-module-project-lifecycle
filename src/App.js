@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import UserCard from './components/UserCard'
 import Followers from './components/Followers'
+import styled from 'styled-components'
 
 class App extends React.Component {
   state= {
@@ -39,23 +40,44 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <Container className="App">
         <header className="App-header">
           <UserCard userData={this.state.userData}/>
+          <FollowersDiv>
+          <Followers followers={this.state.followers} key={this.state.followers.id}/>
+
+          </FollowersDiv>
           
             
-              <Followers followers={this.state.followers} key={this.state.followers.id}/>
+          
             
             
           
           
          
         </header>
-      </div>
+      </Container>
     );
 
   }
   
 }
+
+const Container = styled.div ` 
+border: 2px solid black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+align-items: center
+`
+const FollowersDiv = styled.div ` 
+
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+`
 
 export default App;
